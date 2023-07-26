@@ -9,6 +9,7 @@ This is a collection of jobs to which you can apply and search.
 To use this app run these commands:
 
 - ### `npm install`
+
 - ### `npm start`
 
 ## Built with
