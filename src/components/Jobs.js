@@ -8,7 +8,7 @@ export default function Jobs() {
         <div className="jobs">
             {filteredJobs.map(job => (
                 <div className="job" key={job.id}>
-                    {job.title}
+                    {job.location}
                 </div>
             ))}
         </div>

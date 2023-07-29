@@ -8,7 +8,12 @@ const initialState = {
     jobs: [],
     filteredJobs: [],
     loading: true,
-    error: null
+    error: null,
+    filters: {
+        title: '',
+        location: '',
+        fullTime: false
+    }
 }
 
 function reducer(state, action) {
@@ -49,12 +54,20 @@ export function Provider(props) {
 
 
     function filterByParams(params) {
-        const { name, location, fullTime } = params
-        const filteredJobs = state.jobs.filter(job => {
-            const nameMatch = job.company.toLowerCase().includes(name.toLowerCase())
-            const locationMatch = job.location.toLowerCase().includes(location.toLowerCase())
-            const fullTimeMatch = fullTime ? job.contract.toLowerCase() === 'full time' : true
-            return nameMatch && locationMatch && fullTimeMatch
+        const { title, location, fullTime } = params
+        const jobs = [...state.jobs]
+        //    filter jobs but put brakes if the filters are empty
+        const filteredJobs = jobs.filter(job => {
+            if (title && !job.title.toLowerCase().includes(title.toLowerCase())) {
+                return false
+            }
+            if (location && !job.location.toLowerCase().includes(location.toLowerCase())) {
+                return false
+            }
+            if (fullTime && !job.type.toLowerCase().includes('full time')) {
+                return false
+            }
+            return true
         })
         dispatch({ type: 'FILTER_BY_PARAMS', payload: filteredJobs })
     }
