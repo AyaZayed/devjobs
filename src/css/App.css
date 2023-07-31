@@ -1,0 +1,199 @@
+.App {
+    color: var(--textColor);
+    background-color: var(--body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+    min-height: 100vh;
+}
+
+.btn {
+    background-color: var(--violet);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+header {
+    background: url('../assets/images/bg-pattern-header-mobile.svg') no-repeat center;
+    background-size: cover;
+    margin-bottom: 2rem;
+}
+
+.header-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.theme-switcher {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.theme-switcher label {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin-right: .5rem;
+}
+
+.theme-switcher label span {
+    margin-left: 0.5rem;
+}
+
+.theme-switcher label input {
+    display: none;
+}
+
+.theme-switcher label .slider {
+    position: relative;
+    display: inline-block;
+    width: 2.5rem;
+    height: 1.25rem;
+    background-color: white;
+    border-radius: 1.25rem;
+    transition: background-color 0.25s ease-in-out;
+}
+
+.theme-switcher label .slider:before {
+    position: absolute;
+    content: '';
+    height: .85rem;
+    width: .85rem;
+    left: 0.2rem;
+    bottom: 0.2rem;
+    background-color: var(--violet);
+    border-radius: 50%;
+    transition: transform 0.25s ease-in-out;
+}
+
+.theme-switcher label input:checked+.slider:before {
+    transform: translateX(1.25rem);
+}
+
+.jobs-page {
+    padding: 0 1.5rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-section {
+    position: absolute;
+    top: 5rem;
+}
+
+.search-section form {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    padding: 0 1rem;
+}
+
+.search-section form .form-control {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-section form input {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    color: var(--lightGrey);
+    height: 100%;
+    padding: 1rem;
+}
+
+.search-section form input[type='text'] {
+    border-right: 1px solid var(--lightGrey);
+}
+
+.search-section form .full-time-section {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+}
+
+.search-section form .full-time-section label {
+    font-weight: bold;
+}
+
+.search-section form .full-time-section input {
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: pointer;
+    border: none;
+}
+
+.search-section form .full-time-section input:checked {
+    background-color: var(--violet);
+}
+
+.jobs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+}
+
+.jobs .job-card {
+    background-color: var(--backgroundColor);
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.jobs .job-card .logo {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 10px;
+    margin-right: 1.5rem;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+    header {
+        background: url('../assets/images/bg-pattern-header.svg') no-repeat bottom;
+        background-size: cover;
+    }
+
+    .header-container {
+        padding: 2rem 4rem;
+    }
+
+    .jobs {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width:1200px) {
+    .jobs {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

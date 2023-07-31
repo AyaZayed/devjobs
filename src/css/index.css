@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'museo';
+  src: url('../assets/fonts/Web\ Fonts/museo_300_macroman/Museo300-Regular-webfont.woff2') format('woff2'),
+    url('../assets/fonts/Web\ Fonts/museo_300_macroman/Museo300-Regular-webfont.woff') format('woff');
+}
+
 :root {
   /* font stuff */
   --font-size-basis: 1rem;
@@ -9,9 +15,35 @@
   --h2: calc(var(--h3) * var(--type-scale));
   --h1: calc(var(--h2) * var(--type-scale));
   --font-small: calc(0.667rem);
-  --font-family: 'Open Sans', sans-serif;
+  --font-family: 'museo', sans-serif;
   /* colors */
+  --violet: #5964E0;
+  --lightViolet: #939BF4;
+  --darkGrey: #6E8098;
+}
 
+[data-theme='light'] {
+  --body: #f4f6f8;
+  --lightGrey: #F4F6F8;
+  --backgroundColor: #ffffff;
+  --textColor: #19202D;
+  --boxShadow: rgba(0, 0, 0, 0.1);
+  --iconColor: #6E8098;
+  --buttonBackgroundColor: rgba(89, 100, 224, 0.1);
+  --buttonTextColor: #5964e0;
+  --buttonHoverColor: rgba(89, 100, 224, 0.35);
+}
+
+[data-theme='dark'] {
+  --body: #121721;
+  --lightGrey: #444444;
+  --backgroundColor: #19202D;
+  --textColor: #ffffff;
+  --boxShadow: rgba(255, 255, 255, 0.1);
+  --iconColor: #ffffff;
+  --buttonBackgroundColor: rgba(255, 255, 255, 0.1);
+  --buttonTextColor: #ffffff;
+  --buttonHoverColor: rgba(255, 255, 255, 0.35);
 }
 
 html {
@@ -51,10 +83,12 @@ p {
   font-size: var(--font-size-basis);
 }
 
-/* ::-moz-selection {
-  background-color: var(--primary-color);
+::-moz-selection {
+  background-color: var(--violet);
+  color: #fff
 }
 
 ::selection {
-  background-color: var(--primary-color);
-} */
+  background-color: var(--violet);
+  color: #fff
+}
