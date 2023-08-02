@@ -17,6 +17,10 @@
     transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
 }
 
+.btn:hover {
+    background-color: var(--lightViolet);
+}
+
 header {
     background: url('../assets/images/bg-pattern-header-mobile.svg') no-repeat center;
     background-size: cover;
@@ -75,6 +79,11 @@ header {
     background-color: var(--violet);
     border-radius: 50%;
     transition: transform 0.25s ease-in-out;
+}
+
+/* on hover */
+.theme-switcher label .slider:hover:before {
+    background-color: var(--lightViolet);
 }
 
 .theme-switcher label input:checked+.slider:before {
@@ -164,17 +173,60 @@ header {
     background-color: var(--backgroundColor);
     border-radius: 10px;
     padding: 1.5rem;
+    position: relative;
+    margin-top: 1rem;
 }
 
 .jobs .job-card .logo {
     width: 3.5rem;
     height: 3.5rem;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-right: 1.5rem;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    position: absolute;
+    top: -1.75rem;
+}
+
+.jobs .job-card .grey {
+    color: var(--darkGrey);
+    /* max at 1 line */
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.jobs .job-card p:first-child {
+    margin-top: 2rem;
+    margin-bottom: 0;
+}
+
+.jobs .job-card h3 {
+    margin: 1rem 0;
+    height: 4.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: ellipsis;
+    overflow: hidden;
+}
+
+.jobs .job-card h6 {
+    margin-bottom: 0;
+    color: var(--violet);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    white-space: ellipsis;
+    overflow: hidden;
+}
+
+.load-more {
+    padding-bottom: 2rem;
 }
 
 @media (min-width: 768px) {

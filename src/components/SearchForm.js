@@ -42,7 +42,7 @@ export default function SearchForm() {
                             onChange={(e) => filterByParams({ title: e.target.value })}
                         />
                         <button type='submit' className='btn'>
-                            <img src={new URL('../assets/images/icon-search.svg', import.meta.url)} alt='search' />
+                            <img src={new URL('../assets/images/icon-search-white.svg', import.meta.url)} alt='search' />
                         </button>
                     </div>
                 }

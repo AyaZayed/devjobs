@@ -83,6 +83,16 @@ p {
   font-size: var(--font-size-basis);
 }
 
+a {
+  text-decoration: none;
+  color: var(--textColor);
+}
+
+button {
+  font-family: var(--font-family);
+  cursor: pointer;
+}
+
 ::-moz-selection {
   background-color: var(--violet);
   color: #fff

@@ -3,6 +3,7 @@ import { Context } from '../context'
 import Spinner from './Spinner'
 import SearchForm from './SearchForm'
 import thumbnail from '../assets/images/company-placeholder.jpg'
+import { Link } from 'react-router-dom'
 
 export default function Jobs() {
     const { state } = useContext(Context)
@@ -45,22 +46,26 @@ export default function Jobs() {
                 {loading ? <Spinner /> :
                     filteredJobs.slice(0, jobsPerPage).map(job => {
                         return (
-                            <div className="job-card" key={job.id}>
-                                <img src={thumbnail} alt={job.company} className='logo' />
-                                <div className="job-card-content">
-                                    <p className='grey'>{timeSince(job.created_at)} • {job.type}</p>
-                                    <h3>{job.title}</h3>
-                                    <p className='grey'>{job.company}</p>
-                                    <h6 className='country'>{job.location}</h6>
+                            <Link to={`/jobs/${job.id}`} key={job.id} className='job-link'>
+                                <div className="job-card" key={job.id}>
+                                    <img src={job.company_logo || thumbnail} alt={job.company} className='logo' />
+                                    <div className="job-card-content">
+                                        <p className='grey'>{timeSince(job.created_at)} • {job.type}</p>
+                                        <h3>{job.title}</h3>
+                                        <p className='grey'>{job.company}</p>
+                                        <h6 className='country'>{job.location}</h6>
+                                    </div>
                                 </div>
-                            </div>
+                            </Link>
                         )
                     })
                 }
             </div>
             <div className="load-more">
-                <button className='btn' disabled={jobsPerPage >= filteredJobs.length ? true : false}
-                    onClick={() => setJobsPerPage(jobsPerPage + defaultPages)}>Load More</button>
+                {jobsPerPage <= filteredJobs.length &&
+                    <button className='btn'
+                        onClick={() => setJobsPerPage(jobsPerPage + defaultPages)}>Load More</button>
+                }
             </div>
         </div>
     )
