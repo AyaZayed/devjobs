@@ -53,7 +53,7 @@ export default function Jobs() {
                                         <p className='grey'>{timeSince(job.created_at)} • {job.type}</p>
                                         <h3>{job.title}</h3>
                                         <p className='grey'>{job.company}</p>
-                                        <h6 className='country'>{job.location}</h6>
+                                        <h6 className='violet'>{job.location}</h6>
                                     </div>
                                 </div>
                             </Link>
