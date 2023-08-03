@@ -1,21 +1,28 @@
 import React, { useContext, useState } from 'react'
 import { Context } from '../context'
+import Modal from './searchModal'
 
 export default function SearchForm() {
     const { filterByParams } = useContext(Context)
     const [modal, setModal] = useState(false)
+
+    const searchIcon = new URL('../assets/images/icon-search.svg', import.meta.url)
+    const locationIcon = new URL('../assets/images/icon-location.svg', import.meta.url)
+    const filterIcon = new URL('../assets/images/icon-filter.svg', import.meta.url)
+    const searchIconWhite = new URL('../assets/images/icon-search-white.svg', import.meta.url)
+
     return (
         <div className='search-section'>
             <form className='search-form' onSubmit={e => e.preventDefault()} >
                 <div className='desktop-menu'>
                     <div className='form-control'>
-                        <img src={new URL('../assets/images/icon-search.svg', import.meta.url)} alt='search' />
+                        <img src={searchIcon} alt='search' />
                         <input type='text' id='title' name='title' placeholder='Filter by title...'
                             onChange={(e) => filterByParams({ title: e.target.value })}
                         />
                     </div>
                     <div className='form-control'>
-                        <img src={new URL('../assets/images/icon-location.svg', import.meta.url)} alt='location' />
+                        <img src={locationIcon} alt='location' />
                         <input type='text' id='location' name='location' placeholder='Filter by location...'
                             onChange={(e) => filterByParams({ location: e.target.value })}
                         />
@@ -33,15 +40,17 @@ export default function SearchForm() {
                         <input type='text' id='title' name='title' placeholder='Filter by title...'
                             onChange={(e) => filterByParams({ title: e.target.value })}
                         />
-                        <img src={new URL('../assets/images/icon-filter.svg', import.meta.url)} alt='search'
+                        <img src={filterIcon} alt='search' className='filter-icon'
                             onClick={() => setModal(!modal)}
                         />
                         <button type='submit' className='btn'>
-                            <img className='search-icon' src={new URL('../assets/images/icon-search-white.svg', import.meta.url)} alt='search' />
+                            <img className='search-icon' src={searchIconWhite} alt='search' />
                         </button>
                     </div>
                 </div>
             </form>
+            {modal && <Modal filterByParams={filterByParams} setModal={setModal} />}
         </div>
     )
 }
+

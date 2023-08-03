@@ -1,10 +1,10 @@
-# Github Jobs Clone
+# DevJobs
 
 This is a collection of jobs to which you can apply and search.
 
 ## Screenshot
 
-![Screenshot]()
+![Screenshot](https://res.cloudinary.com/dcfrq5i2y/image/upload/v1691022013/projects%20screenshots/DevJobs.jpg)
 
 To use this app run these commands:
 

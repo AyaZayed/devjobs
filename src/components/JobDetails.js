@@ -9,8 +9,6 @@ export default function JobDetails() {
 
     const job = state.jobs.find(job => job.id === id)
 
-    console.log(job)
-
     if (!job) {
         return (
             <h1>404</h1>
@@ -55,7 +53,7 @@ export default function JobDetails() {
                     <div className='row'>
                         <div className='job-page_header-info'>
                             <h4>{job.company}</h4>
-                            <h6><a target='_blank' href={job.company_url} alt={job.company_url}>{job.company}.com</a></h6>
+                            <h6><a className='grey' target='_blank' href={job.company_url} alt={job.company_url}>{job.company}.com</a></h6>
                         </div>
                         <a target='_blank' href={job.company_url} alt={job.company_url}>
                             <button className='secondary-btn'>Company Site</button>

@@ -154,9 +154,18 @@ header {
     gap: 1rem;
 }
 
+.search-section form .mobile-menu .btn {
+    padding: .3rem .7rem .2rem;
+}
+
 .search-section form .mobile-menu .search-icon {
-    width: 1rem;
-    height: 1rem;
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+.search-section form .mobile-menu .filter-icon {
+    width: 1.2rem;
+    height: 1.2rem;
     cursor: pointer;
 }
 
@@ -295,7 +304,6 @@ header {
     flex-flow: column nowrap;
     align-items: center;
     position: relative;
-    width: 100vw;
     box-sizing: border-box;
 }
 
@@ -363,7 +371,6 @@ header {
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-
 }
 
 .job-page .job-page_content .btn {
@@ -373,6 +380,7 @@ header {
 
 .job-page .job-page_content h2 {
     font-size: var(--h3);
+    margin: 0;
 }
 
 .job-page .job-page_content h6 {
@@ -404,6 +412,81 @@ header {
     width: 21rem;
 }
 
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(3px);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.overlay .modal {
+    background-color: var(--backgroundColor);
+    border-radius: 10px;
+    padding: 2rem;
+    position: relative;
+    width: 100%;
+    max-width: 30rem;
+    box-sizing: border-box;
+}
+
+.modal .modal-header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.modal .modal-header h3 {
+    margin: 0;
+}
+
+.modal .form {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.modal .form .form-control {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 1rem;
+    align-items: center;
+}
+
+.modal .form .form-control:not(:last-of-type) {
+    border-bottom: 1px solid var(--lightGrey);
+}
+
+.modal .form input {
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+.modal .form .btn {
+    margin-top: 1rem;
+}
+
+@media (min-width: 576px) {
+
+    .job-page .job-page_header,
+    .job-page .job-page_content,
+    .job-page_footer .job-page_footer-info {
+        width: 30rem;
+    }
+}
+
 @media (min-width: 768px) {
     header {
         background: url('../assets/images/bg-pattern-header.svg') no-repeat bottom;
@@ -422,6 +505,44 @@ header {
     .job-page .job-page_content,
     .job-page_footer .job-page_footer-info {
         width: 40rem;
+    }
+
+    .job-page .job-page_header {
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        height: 9rem;
+        text-align: left;
+    }
+
+    .job-page .job-page_header img {
+        height: 100%;
+        object-fit: cover;
+        position: unset;
+        width: unset;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .job-page .job-page_header .row {
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .job-page .job-page_content {
+        margin-top: 8rem;
+    }
+
+    .job-page .job-page_content .btn {
+        width: fit-content;
+    }
+
+    .job-page .job-page_content .job-page_content-header {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
     }
 }
 
